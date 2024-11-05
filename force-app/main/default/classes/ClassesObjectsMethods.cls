@@ -155,11 +155,12 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Double calculateDifferenceOfSquares(Double a, Double b) {
         // Square the input numbers using the Math.pow() function
-
+        Double differenceA = Math.pow(a, 2);
+        Double differenceB = Math.pow(b, 2);
         // Calculate the absolute difference using Math.abs() function
-
+        Double absoluteDiff = Math.abs(differenceA - differenceB);
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return absoluteDiff; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -170,9 +171,9 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer generateRandomNumber() {
         // Use Math class to generate number between 50 and 100
-
+        Integer random = Integer.valueOf(Math.floor((Math.random() * (100 - 50) + 50)));
         // Return the random integer
-        return null; // Replace null with the variable you used to store the result
+        return random; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -209,11 +210,11 @@ public with sharing class ClassesObjectsMethods {
             'Sunday' => '7'
             };
         // Get the day name using .format('EEEE');
-
+        String initialDay = dt.format('EEEE');
         // Get the day number from the map using the day name
-
+        String whichDay = dayOftheWeek.get(initialDay);
         // Return the result as a string
-        return null; // Replace null with the variable you used to store the result
+        return whichDay; // Replace null with the variable you used to store the result
     }
 
 
@@ -227,10 +228,20 @@ public with sharing class ClassesObjectsMethods {
      * @return The a positive number years between the two dates, or null if either date is null.
      */
     public static Integer calculateYearDifference(Date d1, Date d2) {
-
+        if (d1 == null || d2 == null) {
+            return null;
+        }
         // Subtract the difference in years
-
-        return null; // Replace null with the variable you used to store the result
+        Integer firstYear = Integer.valueOf(d1.year());
+        Integer secondYear = Integer.valueOf(d2.year());
+        Integer finalDifference = null;
+        if (firstYear < secondYear) {
+            finalDifference = secondYear - firstYear;
+        } else {
+            finalDifference = firstYear - secondYear;
+        }
+        
+        return finalDifference; // Replace null with the variable you used to store the result
     }
 
     /**
