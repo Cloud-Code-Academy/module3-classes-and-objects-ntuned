@@ -26,7 +26,7 @@
  * Math class: https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_math.htm
  * Classes: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_understanding.htm
  *
- * @author Your Name
+ * @author Bryan Moreno
  */
 
 public with sharing class ClassesObjectsMethods {
@@ -39,18 +39,15 @@ public with sharing class ClassesObjectsMethods {
      * @return A list containing the length of the string, a substring of the string, and the string in lower case.
      */
     public static List<String> practiceStringMethods() {
-        // Initialize a String with 'Hello, Salesforce!'
-        
-        // Get the length of the String        
-        // Get a substring of the String of the first 5 characters
-        // Convert the String to lower case
-        
-        // Return the list with the string data
-        // In the first position add the string length
-        // In the second position add the substring
-        // In the third position add the string in lower case
-
-        return null; // Replace null with the variable you used to store the result
+        String helloSf = 'Hello, Salesforce!';
+        String helloLength = string.valueOf(helloSf.length());    
+        String firstFive = helloSf.substring(0, 5);
+        String lowerHello = helloSf.toLowerCase();
+        List<String> helloResult = new List<String>();
+        helloResult.add(helloLength);
+        helloResult.add(firstFive);
+        helloResult.add(lowerHello);
+        return helloResult; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -61,15 +58,14 @@ public with sharing class ClassesObjectsMethods {
      * @return A list of boolean values indicating whether the string starts with 'Sales', ends with 'Force', or contains 'Awesome'.
      */
     public static List<Boolean> checkStringContent(String input) {
-        // Initialize a list to store the results
-        
-        // Check if the string starts with 'Sales'
-        
-        // Check if the string ends with 'Force'
-        
-        // Check if the string contains 'Awesome'
-        
-        return null; // Replace null with the variable you used to store the result
+        List<Boolean> stringContent = new List<Boolean>();
+        Boolean checkStartEnd = input.startsWith('Sales');
+        Boolean endsForce = input.endsWith('Force');
+        Boolean containsWord = input.contains('Awesome');
+        stringContent.add(checkStartEnd);
+        stringContent.add(endsForce);
+        stringContent.add(containsWord);
+        return stringContent; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -83,11 +79,11 @@ public with sharing class ClassesObjectsMethods {
         // Split the sentence into words
 
         // Create a set to store the unique words
-
+        Set<String> unique = new Set<String>();
         // Add each word to the set
 
         // Join the unique words back into a sentence
-
+        
         // Return the sentence with unique words
         return null; // Replace null with the variable you used to store the result
     }
@@ -102,7 +98,7 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer countVowels(String str) {
         // Initialize the result Integer
-
+        Integer vowelNumber = 0;
         /*
         for () {
             // get individual characters from the string - hint use substring or split
@@ -126,16 +122,27 @@ public with sharing class ClassesObjectsMethods {
         List<String> scientistNames = new List<String>{'Tim Berners-Lee', 'Alan Turing', 'Grace Hopper', 'Donald Knuth', 'Guido van Rossum', 'Ken Thompson', 'Stephen Hawking'};
 
         // The variable to store the concatenated string
-
+        String scientists = '';
         // Loop through the list of scientists' names
+        for (String sName : scientistNames) {
 
+            if (sName != null) {
+                Boolean nameHasG = sName.contains('g');
+                if (nameHasG == true) {
+                    scientists += sName;
+                } else {
+                    continue;
+                }
+                
+            }
+        }
             // If the name doesn't contain the letter 'G', skip this iteration
 
             // Add the name to the result string, followed by a comma
 
         // Remove the last comma from the result string
 
-        return null; // Replace null with the variable you used to store the result
+        return scientists; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -176,11 +183,11 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String getCurrentDate() {
         // Get the todays date
-
+        Date currentDate = date.today();
         // Format the current date
-
+        String todayDate = currentDate.format();
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return todayDate; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -192,7 +199,15 @@ public with sharing class ClassesObjectsMethods {
     public static String getDayOfWeek(DateTime dt) {
         // Define a map of day of the week as a key and day number as the value
         // Monday = 1, Tuesday = 2, etc.
-
+        Map<String, String> dayOftheWeek = new Map<String, String>{
+            'Monday' => '1',
+            'Tuesady' => '2',
+            'Wednesday' => '3',
+            'Thursday' => '4',
+            'Friday' => '5',
+            'Saturday' => '6',
+            'Sunday' => '7'
+            };
         // Get the day name using .format('EEEE');
 
         // Get the day number from the map using the day name
