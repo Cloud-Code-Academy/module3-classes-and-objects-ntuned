@@ -10,7 +10,7 @@
 @IsTest
 public with sharing class ClassesObjectsMethodsTest {
     @IsTest
-    static void testPracticeStringMethods() {
+    static void testPracticeStringMethods() { 
         // Call the practiceStringMethods method
         List<String> result = ClassesObjectsMethods.practiceStringMethods();
 
